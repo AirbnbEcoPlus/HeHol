@@ -27,16 +27,23 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+TAILWIND_APP_NAME = "theme"
 
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tailwind',
+    'theme',
+    'database',
+    'api',
+    'adminpanel',
 ]
 
 MIDDLEWARE = [
@@ -68,7 +75,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'HeHol.wsgi.application'
+ASGI_APPLICATION = "HeHol.asgi.application"
 
+STATIC_URL = "static/"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -79,6 +88,17 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],
+        },
+    },
+}
+
 
 
 # Password validation
