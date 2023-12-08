@@ -24,4 +24,5 @@ urlpatterns = [
     path('vote/', include("vote.urls", namespace="vote")),
     path('adminpanel/', include("adminpanel.urls")),
     path('', IndexView.as_view(), name="index"),
+    path("accounts/", include("django.contrib.auth.urls")),
 ]
