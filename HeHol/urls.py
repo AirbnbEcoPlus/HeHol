@@ -18,6 +18,8 @@ from django.urls import path, include
 from .views import IndexView
 urlpatterns = [
     path('api/', include("api.urls")),
+    path('search/', include("search.urls")),
+    path('lastnews/', include("lastnews.urls")),
     path('chatbot/', include("chat.urls", namespace="chat")),
     path('vote/', include("vote.urls", namespace="vote")),
     path('adminpanel/', include("adminpanel.urls")),

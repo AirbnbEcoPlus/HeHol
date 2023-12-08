@@ -7,7 +7,6 @@ from django.http import JsonResponse
 
 class VoteView(TemplateView):
     template_name: str = "vote/vote.html"
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         random_website = website.objects.order_by('?').first()

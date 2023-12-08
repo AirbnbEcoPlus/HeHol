@@ -2,7 +2,11 @@
 <div class="p-6 w-[800px]">
   <h1 class="text-3xl tracking-tight font-light" id="chat-header">Les dernières News</h1>
 
-
+{% for item in rss_list %}
+      <li>
+        <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+      </li>
+    {% endfor %}
 
 </div>
 
